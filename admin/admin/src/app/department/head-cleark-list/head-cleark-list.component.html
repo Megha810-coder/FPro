@@ -1,0 +1,59 @@
+<div class="col-lg-12">
+  <div class="card">
+      
+    <div class="card-header">
+        <i class="fa fa-align-justify"></i>Praposal Report:<b><font size="4">&nbsp;&nbsp;</font></b>
+    </div>
+    <div class="card-body">
+     
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        Search:-
+        <input type="text" name="search"  [(ngModel)]="searchtext" autocomplete="off" placeholder="search">
+      </div><br>
+           <table class="table table-bordered table-striped table-sm">
+            <thead>
+           
+                <th>Sr No</th>
+                <th>School/College</th>
+                <th>School/College Code</th>
+                <th>Contact no</th>
+                <th>File Status</th>
+                <th>Signed By</th>
+                <th>Address</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+              <tr>
+                <tr *ngFor="let file of myresponse | filter:searchtext let i=index;">
+                  <td>{{file.pro_id}}</td>
+                <td>{{file.pro_name}}</td>
+                <td>{{file.college_code}}</td>
+                <td>{{file.contact_no}}</td> 
+                <td>{{file.file_status}}</td>
+                <td>{{file.address}}</td>
+                <td><button type="button" class="btn btn-info mr-1" (click)="updateclerk(file)">UPDATE</button> 
+               
+                <button type="button" class="btn btn-info mr-1" (click)="viewclerk(file)">VIEW</button>
+                
+               <!-- <button type="button" class="btn btn-info mr-1" (click)="deleteHazardous(hazardous.hazard_id);">DELETE</button>  -->
+               <a [routerLink] = "'/department/edu-form'"> <button type="button" class="btn btn-info mr-1">Create</button></a>
+              </td>
+  
+              </tr>
+            </tbody>  
+          </table>
+
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
